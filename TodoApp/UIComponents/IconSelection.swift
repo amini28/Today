@@ -38,7 +38,7 @@ struct IconSelection: View {
 
 struct IconSelection_Previews: PreviewProvider {
     static var previews: some View {
-        IconSelection(name: "LightBlue", selected: true)
+        IconSelection(name: "white", selected: true)
             .environmentObject(ThemeSource())
     }
 }

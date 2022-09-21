@@ -27,16 +27,57 @@ extension View {
             Text(text).foregroundColor(.gray)
         }
     }
-    
-    func navigationBarColor(titleColor: UIColor?) -> some View {
-        self.modifier(NavigationBarModifier(titleColor: titleColor))
+
+    @ViewBuilder
+    func header(string: String, foregroundColor: Color) -> some View {
+        Text(string)
+            .font(.caption)
+            .foregroundColor(foregroundColor)
     }
     
+    @ViewBuilder
+    func footer(string: String, foregroundColor: Color) -> some View {
+        Text(string)
+            .font(.caption2)
+            .foregroundColor(foregroundColor)
+    }
+
 }
 
-extension UIPickerView {
-    open override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: super.intrinsicContentSize.height)
+
+extension Date {
+    func formatString(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+    
+    func startEndTime() -> (starDate: Date, endDate: Date) {
+        if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
+            var components = calendar.components([.year, .month, .day, .hour, .minute, .second], from: self)
+            
+            components.hour = 00
+            components.minute = 00
+            components.second = 00
+            let startDate = calendar.date(from: components)
+            
+            components.hour = 23
+            components.minute = 59
+            components.second = 59
+            let endDate = calendar.date(from: components)
+            
+            return (startDate!, endDate!)
+        } else {
+            return (Date(), Date())
+        }
     }
 }
 
+extension String {
+    func first10() -> String {
+        if self.count > 10 {
+            return "\(String(self.prefix(10)))..."
+        }
+        return self
+    }
+}

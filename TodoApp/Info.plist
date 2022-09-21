@@ -6,50 +6,40 @@
 	<dict>
 		<key>CFBundleAlternateIcons</key>
 		<dict>
-			<key>Black</key>
+			<key>black</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>Black</string>
+					<string>black</string>
 				</array>
-				<key>isLight</key>
-				<false/>
 			</dict>
-			<key>DarkBlue</key>
+			<key>darkBlue</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>DarkBlue</string>
+					<string>darkBlue</string>
 				</array>
-				<key>isLight</key>
-				<false/>
 			</dict>
-			<key>LightBlue</key>
+			<key>lightBlue</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>LightBlue</string>
+					<string>lightBlue</string>
 				</array>
-				<key>isLight</key>
-				<true/>
 			</dict>
-			<key>LightOrange</key>
+			<key>lightOrange</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>LightOrange</string>
+					<string>lightOrange</string>
 				</array>
-				<key>isLight</key>
-				<true/>
 			</dict>
-			<key>White</key>
+			<key>white</key>
 			<dict>
 				<key>CFBundleIconFiles</key>
 				<array>
-					<string>White</string>
+					<string>white</string>
 				</array>
-				<key>isLight</key>
-				<true/>
 			</dict>
 		</dict>
 		<key>CFBundlePrimaryIcon</key>
@@ -75,5 +65,7 @@
 			<string>UINewsstandBindingTypeMagazine</string>
 		</dict>
 	</dict>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
 </dict>
 </plist>

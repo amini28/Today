@@ -29,17 +29,17 @@ struct PersistenceController {
             todo.title = title
             todo.done = false
             todo.alert = .random()
-            
+
             todo.time = Calendar.current.date(byAdding: .day, value: 1, to: .now)
         }
-        
+
         ["Clean dishes date 3", "Write Apa yang akan terjadi jika panjang Todo App date 3", "Subscribe to Me date3"].forEach { title in
             let todo = Todo(context: viewContext)
             todo.id = UUID()
             todo.title = title
             todo.done = true
             todo.alert = .random()
-            
+
             todo.time = Calendar.current.date(byAdding: .day, value: -1, to: .now)
         }
 
@@ -52,11 +52,12 @@ struct PersistenceController {
         }
         return result
     }()
-
-    let container: NSPersistentContainer
+    
+    let container: NSCustomPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "TodoApp")
+//        container = NSPersistentContainer(name: "TodoApp")
+        container = NSCustomPersistentContainer(name: "TodoApp")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -67,5 +68,25 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+}
+
+extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("shared file container could not be created")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
+    }
+}
+
+class NSCustomPersistentContainer: NSPersistentCloudKitContainer {
+    
+    override class func defaultDirectoryURL() -> URL {
+        var storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.vree.today")
+        storeURL = storeURL?.appendingPathComponent("todoapp.sqlite")
+        return storeURL!
     }
 }

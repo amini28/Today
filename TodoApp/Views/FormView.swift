@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 enum Formday {
     case yesterday
@@ -13,6 +14,7 @@ enum Formday {
     case tomorrow
 }
 
+@available(iOS 16.0, *)
 struct FormView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) var presentationMode
@@ -155,9 +157,7 @@ struct FormView: View {
                     }
                     .listRowBackground(themeSc.current.secondaryColor.opacity(0.1))
                 }
-                .onAppear {
-                    UITableView.appearance().backgroundColor = .clear
-                }
+                .scrollContentBackground(.hidden)
                 .foregroundColor(themeSc.current.primaryColor)
                 .background(themeSc.current.baseColor)
             }
@@ -230,6 +230,8 @@ struct FormView: View {
         try? viewContext.save()
         
         newTodoTitle = ""
+        WidgetCenter.shared.reloadAllTimelines()
+        
         presentationMode.wrappedValue.dismiss()
     }
     
@@ -282,6 +284,8 @@ struct FormView: View {
     }
 }
 
+
+@available(iOS 16.0, *)
 struct FormView_Previews: PreviewProvider {
     static var previews: some View {
         FormView()

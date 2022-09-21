@@ -28,77 +28,73 @@ struct ContentView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                themeSc.current.baseColor.ignoresSafeArea()
-                GeometryReader { geo in
-                    VStack {
-                        Tabs(fixed: false, tabs: tabs, geoWidth: geo.size.width, selectedTab: $selectedTab).environmentObject(themeSc)
-                            .padding(10)
-                        
-                        TabView(selection: $selectedTab) {
-                            TodoView(filter: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date())
-                                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                                .environmentObject(themeSc)
-                                .tag(0)
-                            
-                            TodoView(filter: Date())
-                                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                                .environmentObject(themeSc)
-                                .tag(1)
-                            
-                            TodoView(filter: Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date())
-                                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                                .environmentObject(themeSc)
-                                .tag(2)
-                            
-                        }
-                        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                    }
-                }
-            }
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarColor(titleColor: UIColor(themeSc.current.primaryColor))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+        NavigationStack {
+            content
+        }
+        .accentColor(themeSc.current.primaryColor)
+    }
+    
+    var content: some View {
+        ZStack {
+            themeSc.current.baseColor.ignoresSafeArea()
+            GeometryReader { geo in
+                VStack {
+                    Tabs(fixed: false, tabs: tabs, geoWidth: geo.size.width, selectedTab: $selectedTab).environmentObject(themeSc)
+                        .padding(10)
                     
-                    Button{
-                        showAddTodoSheet.toggle()
-                    } label: {
-                        Label("Add Item", systemImage: "plus.app.fill")
-                            .foregroundColor(themeSc.current.primaryColor)
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-
-                    NavigationLink {
-                        SettingsView()
+                    TabView(selection: $selectedTab) {
+                        TodoView(filter: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date())
+                            .environment(\.managedObjectContext, viewContext)
                             .environmentObject(themeSc)
-                    } label : {
-                        Label("Add Item", systemImage: "filemenu.and.selection")
-                            .foregroundColor(themeSc.current.primaryColor)
+                            .tag(0)
+                        
+                        TodoView(filter: Date())
+                            .environment(\.managedObjectContext, viewContext)
+                            .environmentObject(themeSc)
+                            .tag(1)
+                        
+                        TodoView(filter: Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date())
+                            .environment(\.managedObjectContext, viewContext)
+                            .environmentObject(themeSc)
+                            .tag(2)
+                        
                     }
-                    
-                    
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 }
-                
-                
-            }
-            .sheet(isPresented: $showAddTodoSheet) {
-                FormView()
-                    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                    .environmentObject(themeSc)
             }
         }
-        .preferredColorScheme(themeSc.current.isLight ? .light : .dark)
-        .accentColor(themeSc.current.primaryColor)
-//        .onAppear {
-//
-//            let dateNow: Date = .now
-//            let yesterdayDate = Calendar.current.date(byAdding: .day, value: -1, to: dateNow)
-//
-//        }
+        .navigationBarTitle("", displayMode: .inline)
+        .foregroundColor(themeSc.current.primaryColor)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                
+                Button{
+                    showAddTodoSheet.toggle()
+                } label: {
+                    Label("Add Item", systemImage: "plus.app.fill")
+                        .foregroundColor(themeSc.current.primaryColor)
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                
+                NavigationLink {
+                    SettingsView()
+                        .environmentObject(themeSc)
+                } label : {
+                    Label("Add Item", systemImage: "filemenu.and.selection")
+                        .foregroundColor(themeSc.current.primaryColor)
+                }
+                
+                
+            }
+            
+        }
+        .sheet(isPresented: $showAddTodoSheet) {
+            FormView()
+                .environment(\.managedObjectContext, viewContext)
+                .environmentObject(themeSc)
+        }
     }
     
 }

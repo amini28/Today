@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import SwiftUI
 
+let selectedThemeKey = "selectedThemeKey"
 class ThemeSource: ObservableObject {
-    @AppStorage("selectedTheme") var selectedThemeAppStorage = 0 {
+    @AppStorage(selectedThemeKey, store: UserDefaults(suiteName: "group.com.vree.today")) var selectedThemeAppStorage = Theme.white {
         didSet {
             print("did set")
             updateTheme()
@@ -18,79 +19,67 @@ class ThemeSource: ObservableObject {
     }
     
     init() {
-        getAlternateIcons()
-    }
-    
-    @Published var current: Tema = Tema(isLight: true, name: "White")
-    
-    func updateTheme() {
-        if let newCurrent = tema[selectedThemeAppStorage] {
-            current = newCurrent
-        } else {
-            current = Tema(isLight: true, name: "White")
-        }
-    }
-    
-    var iconNames: [String?] = []
-    var tema: [Tema?] = []
-    
-    struct Tema {
-        var isLight: Bool
-        var name: String
-        
-        var baseColor: Color {
-            
-            if name == "White" {
-                return .white
-            }
-            if name == "Black" {
-                return .black
-            }
-            return Color("\(name)_baseColor")
-        }
-        var primaryColor: Color {
-            if name == "White" {
-                return .black
-            }
-            if name == "Black" {
-                return .white
-            }
-            return Color("\(name)_primaryColor")
-        }
-        var secondaryColor: Color {
-            if name == "White" || name == "Black" {
-                return .gray
-            }
-            return Color("\(name)_secondaryColor")
-        }
-    }
-    
-    
-    func getAlternateIcons() {
-        if let icons = Bundle.main.object(forInfoDictionaryKey: "CFBundleIcons") as? [String: Any],
-           let alternateIcons = icons["CFBundleAlternateIcons"] as? [String: Any] {
-            
-            for(_, value) in alternateIcons {
-                
-                guard let iconList = value as? Dictionary<String, Any> else { return }
-                guard let iconFiles = iconList["CFBundleIconFiles"] as? [String] else { return }
-                
-                guard let icon = iconFiles.first else { return }
-                
-                guard let theme = iconList["isLight"] as? Bool else { return }
-                
-                tema.append(Tema(isLight: theme, name: icon))
-                
-                iconNames.append(icon)
-            }
-            
-        }
-        
-//        if let currentIcon = UIApplication.shared.alternateIconName {
-//            self.currentIndex = iconNames.firstIndex(of: currentIcon) ?? 0
-//        }
         updateTheme()
     }
-
+    
+    @Published var current: Theme = .white
+    
+    func updateTheme() {
+        if let newCurrent = Theme(rawValue: selectedThemeAppStorage.rawValue) {
+            current = newCurrent
+        } else {
+            current = .white
+        }
+    }
+    
 }
+
+public enum Theme: String, CaseIterable {
+    
+    case white
+    case black
+    case lightBlue
+    case darkBlue
+    case lightOrange
+    
+    public var appearance: ColorScheme {
+        switch self {
+        case .white, .lightBlue, .lightOrange:
+            return .light
+        case .black, .darkBlue:
+            return .dark
+        }
+    }
+    
+    public var baseColor: Color {
+        switch self {
+        case .white: return Color(red: 1, green: 1, blue: 1)
+        case .black: return Color(red: 0, green: 0, blue: 0)
+        case .lightBlue: return Color(red: 0.875, green: 0.886, blue: 0.916)
+        case .darkBlue: return Color(red: 0.171, green: 0.217, blue: 0.283)
+        case .lightOrange: return Color(red: 0.925, green: 0.925, blue: 0.925)
+        }
+    }
+    
+    public var primaryColor: Color {
+        switch self {
+        case .white: return Color(red: 0, green: 0, blue: 0)
+        case .black: return Color(red: 1, green: 1, blue: 1)
+        case .lightBlue: return Color(red: 0.180, green: 0.341, blue: 0.631)
+        case .darkBlue: return Color(red: 0.196, green: 0.525, blue: 0.875)
+        case .lightOrange: return Color(red: 0.973, green: 0.392, blue: 0.008)
+        }
+    }
+    
+    public var secondaryColor: Color {
+        switch self {
+        case .white: return Color(red: 0.52, green: 0.52, blue: 0.52)
+        case .black: return Color(red: 0.52, green: 0.52, blue: 0.52)
+        case .lightBlue: return Color(red: 0.361, green: 0.461, blue: 0.482)
+        case .darkBlue: return Color(red: 0.906, green: 0.957, blue: 1)
+        case .lightOrange: return Color(red: 0.424, green: 0.424, blue: 0.424)
+        }
+    }
+}
+
 
