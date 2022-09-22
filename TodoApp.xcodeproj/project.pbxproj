@@ -45,7 +45,18 @@
 		8495EB7728D077D50070CD1A /* TodayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495EB6B28D04D040070CD1A /* TodayProvider.swift */; };
 		8495EB7828D077D90070CD1A /* TodayWidgetMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495EB7428D0603D0070CD1A /* TodayWidgetMedium.swift */; };
 		8495EB7928D077DD0070CD1A /* TodayWidgetSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495EB6928D04CC30070CD1A /* TodayWidgetSmall.swift */; };
-		849ED4F028DA6523005AE0A3 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4A28B0B18800D071B9 /* Extension+View.swift */; };
+		849ED4F028DA6523005AE0A3 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4A28B0B18800D071B9 /* View+Placeholder.swift */; };
+		849ED4F228DBD96B005AE0A3 /* StaticWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F128DBD96B005AE0A3 /* StaticWidget.swift */; };
+		849ED4F428DBD9B2005AE0A3 /* TodayWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F328DBD9B2005AE0A3 /* TodayWidgetEntryView.swift */; };
+		849ED4F628DBD9EB005AE0A3 /* TimerActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F528DBD9EB005AE0A3 /* TimerActivityView.swift */; };
+		849ED4F828DBDA24005AE0A3 /* ActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F728DBDA24005AE0A3 /* ActivityWidget.swift */; };
+		849ED4FA28DBDBD3005AE0A3 /* Date+StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F928DBDBD3005AE0A3 /* Date+StringFormat.swift */; };
+		849ED4FC28DBDBE6005AE0A3 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4FB28DBDBE6005AE0A3 /* String+Subscript.swift */; };
+		849ED4FD28DBDC1A005AE0A3 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4FB28DBDBE6005AE0A3 /* String+Subscript.swift */; };
+		849ED4FE28DBDC1D005AE0A3 /* Date+StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4F928DBDBD3005AE0A3 /* Date+StringFormat.swift */; };
+		849ED50028DBDDF0005AE0A3 /* View+ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED4FF28DBDDF0005AE0A3 /* View+ViewBuilder.swift */; };
+		849ED50228DBDE52005AE0A3 /* Date+24Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED50128DBDE52005AE0A3 /* Date+24Format.swift */; };
+		849ED50328DBDE6E005AE0A3 /* Date+24Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ED50128DBDE52005AE0A3 /* Date+24Format.swift */; };
 		84FF000628CC711C00A69573 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FF000528CC711C00A69573 /* WidgetKit.framework */; };
 		84FF000828CC711C00A69573 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84FF000728CC711C00A69573 /* SwiftUI.framework */; };
 		84FF000B28CC711C00A69573 /* Befor_Today_After.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF000A28CC711C00A69573 /* Befor_Today_After.swift */; };
@@ -55,7 +66,7 @@
 		84FF001428CC711E00A69573 /* Befor Today AfterExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84FF000328CC711C00A69573 /* Befor Today AfterExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84FF6D4528AFED8000D071B9 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4428AFED8000D071B9 /* SettingView.swift */; };
 		84FF6D4828B04C6C00D071B9 /* IconSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4728B04C6C00D071B9 /* IconSelection.swift */; };
-		84FF6D4B28B0B18800D071B9 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4A28B0B18800D071B9 /* Extension+View.swift */; };
+		84FF6D4B28B0B18800D071B9 /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4A28B0B18800D071B9 /* View+Placeholder.swift */; };
 		84FF6D4F28B0B27600D071B9 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D4E28B0B27600D071B9 /* FormView.swift */; };
 		84FF6D7028B31F4500D071B9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF6D6F28B31F4500D071B9 /* Notification.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +131,14 @@
 		8495EB6B28D04D040070CD1A /* TodayProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayProvider.swift; sourceTree = "<group>"; };
 		8495EB6D28D04D120070CD1A /* TodayEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEntry.swift; sourceTree = "<group>"; };
 		8495EB7428D0603D0070CD1A /* TodayWidgetMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetMedium.swift; sourceTree = "<group>"; };
+		849ED4F128DBD96B005AE0A3 /* StaticWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticWidget.swift; sourceTree = "<group>"; };
+		849ED4F328DBD9B2005AE0A3 /* TodayWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetEntryView.swift; sourceTree = "<group>"; };
+		849ED4F528DBD9EB005AE0A3 /* TimerActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerActivityView.swift; sourceTree = "<group>"; };
+		849ED4F728DBDA24005AE0A3 /* ActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityWidget.swift; sourceTree = "<group>"; };
+		849ED4F928DBDBD3005AE0A3 /* Date+StringFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+StringFormat.swift"; sourceTree = "<group>"; };
+		849ED4FB28DBDBE6005AE0A3 /* String+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
+		849ED4FF28DBDDF0005AE0A3 /* View+ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ViewBuilder.swift"; sourceTree = "<group>"; };
+		849ED50128DBDE52005AE0A3 /* Date+24Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+24Format.swift"; sourceTree = "<group>"; };
 		84B3BAAA28A9F3D40099F30D /* Todo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Todo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84FF000328CC711C00A69573 /* Befor Today AfterExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Befor Today AfterExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FF000528CC711C00A69573 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -131,7 +150,7 @@
 		84FF001928CCADCA00A69573 /* TodoApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodoApp.entitlements; sourceTree = "<group>"; };
 		84FF6D4428AFED8000D071B9 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		84FF6D4728B04C6C00D071B9 /* IconSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSelection.swift; sourceTree = "<group>"; };
-		84FF6D4A28B0B18800D071B9 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		84FF6D4A28B0B18800D071B9 /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
 		84FF6D4E28B0B27600D071B9 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		84FF6D6F28B31F4500D071B9 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +275,10 @@
 				8495EB6D28D04D120070CD1A /* TodayEntry.swift */,
 				8495EB7428D0603D0070CD1A /* TodayWidgetMedium.swift */,
 				843BC9CD28D864E000C261CA /* TodayWidgetRectangle.swift */,
+				849ED4F128DBD96B005AE0A3 /* StaticWidget.swift */,
+				849ED4F328DBD9B2005AE0A3 /* TodayWidgetEntryView.swift */,
+				849ED4F528DBD9EB005AE0A3 /* TimerActivityView.swift */,
+				849ED4F728DBDA24005AE0A3 /* ActivityWidget.swift */,
 			);
 			path = "Befor Today After";
 			sourceTree = "<group>";
@@ -273,7 +296,11 @@
 		84FF6D4928B0B16A00D071B9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				84FF6D4A28B0B18800D071B9 /* Extension+View.swift */,
+				84FF6D4A28B0B18800D071B9 /* View+Placeholder.swift */,
+				849ED4FF28DBDDF0005AE0A3 /* View+ViewBuilder.swift */,
+				849ED4F928DBDBD3005AE0A3 /* Date+StringFormat.swift */,
+				849ED50128DBDE52005AE0A3 /* Date+24Format.swift */,
+				849ED4FB28DBDBE6005AE0A3 /* String+Subscript.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,7 +457,10 @@
 				84FF6D4F28B0B27600D071B9 /* FormView.swift in Sources */,
 				842E96C428AD7EC100A91CC2 /* Theme.swift in Sources */,
 				84FF001128CC711E00A69573 /* Befor_Today_After.intentdefinition in Sources */,
+				849ED4FA28DBDBD3005AE0A3 /* Date+StringFormat.swift in Sources */,
 				84FF6D4828B04C6C00D071B9 /* IconSelection.swift in Sources */,
+				849ED50028DBDDF0005AE0A3 /* View+ViewBuilder.swift in Sources */,
+				849ED4FC28DBDBE6005AE0A3 /* String+Subscript.swift in Sources */,
 				84FF6D4528AFED8000D071B9 /* SettingView.swift in Sources */,
 				842E961A28A9F6CC00A91CC2 /* Todo+CoreDataClass.swift in Sources */,
 				842E96C228AD614A00A91CC2 /* ClockView.swift in Sources */,
@@ -441,7 +471,8 @@
 				8484AE3528A9F06C0056779A /* TodoAppApp.swift in Sources */,
 				84FF6D7028B31F4500D071B9 /* Notification.swift in Sources */,
 				8484AE4128A9F06D0056779A /* TodoApp.xcdatamodeld in Sources */,
-				84FF6D4B28B0B18800D071B9 /* Extension+View.swift in Sources */,
+				84FF6D4B28B0B18800D071B9 /* View+Placeholder.swift in Sources */,
+				849ED50228DBDE52005AE0A3 /* Date+24Format.swift in Sources */,
 				840545E128D9A44C00005E3B /* ToggleViewActivity.swift in Sources */,
 				842E96BE28AC791400A91CC2 /* Tabs.swift in Sources */,
 			);
@@ -451,18 +482,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849ED4F428DBD9B2005AE0A3 /* TodayWidgetEntryView.swift in Sources */,
+				849ED4FE28DBDC1D005AE0A3 /* Date+StringFormat.swift in Sources */,
 				8495EB7628D077D00070CD1A /* TodayEntry.swift in Sources */,
 				8495EB6828D029C10070CD1A /* Theme.swift in Sources */,
 				8495EB7828D077D90070CD1A /* TodayWidgetMedium.swift in Sources */,
 				8495EB7728D077D50070CD1A /* TodayProvider.swift in Sources */,
 				84FF001028CC711E00A69573 /* Befor_Today_After.intentdefinition in Sources */,
+				849ED4F228DBD96B005AE0A3 /* StaticWidget.swift in Sources */,
 				84FF000B28CC711C00A69573 /* Befor_Today_After.swift in Sources */,
 				8495EB7128D05A470070CD1A /* TodoApp.xcdatamodeld in Sources */,
+				849ED50328DBDE6E005AE0A3 /* Date+24Format.swift in Sources */,
 				8495EB7928D077DD0070CD1A /* TodayWidgetSmall.swift in Sources */,
 				840545DF28D9881400005E3B /* TimerAttributes.swift in Sources */,
+				849ED4F628DBD9EB005AE0A3 /* TimerActivityView.swift in Sources */,
+				849ED4F828DBDA24005AE0A3 /* ActivityWidget.swift in Sources */,
 				8495EB7228D05A920070CD1A /* Persistence.swift in Sources */,
+				849ED4FD28DBDC1A005AE0A3 /* String+Subscript.swift in Sources */,
 				8495EB7328D05A960070CD1A /* Todo+CoreDataClass.swift in Sources */,
-				849ED4F028DA6523005AE0A3 /* Extension+View.swift in Sources */,
+				849ED4F028DA6523005AE0A3 /* View+Placeholder.swift in Sources */,
 				843BC9CE28D864E000C261CA /* TodayWidgetRectangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
